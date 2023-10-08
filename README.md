@@ -136,13 +136,15 @@ $ cat refs/heads/master
 4. ***modified*** (измененный). К данным файлам относятся те, которые были изменены после начала отслеживания Git.
 
 
+
 ```mermaid
-Жизненный цикл файлов Git;
-	A[***untracked*** (неотслеживаемый)] -- git add --> B[***staged*** (подготовленный) + ***tracked***];
-	B -- git commit --> C[***tracked*** (отслеживаемый)];
-	C -- Изменения --> D[***modified*** (измененный)];
-	D --> git add --> B;
-	B --> Изменения -->D;
+flowchart TD;
+ A[untracked] --git add--> B[staged + tracked];
+ B --git commit--> C[tracked];
+ C --changes--> D[modified];
+ D --git add--> B;
+ B --changes--> D;
+
 ```
 
 
